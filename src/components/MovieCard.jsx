@@ -1,12 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../App.css'; // Import the consolidated CSS
+import '../App.css';
 
 const MovieCard = ({ genre, movies }) => {
   const navigate = useNavigate();
 
   const handleMovieClick = (movieId) => {
-    // Navigate to the movie details page
     navigate(`/movie/${movieId}`);
   };
 

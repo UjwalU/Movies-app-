@@ -32,7 +32,6 @@ const MovieDetail = () => {
       const streamvibe = (imdb - parseFloat(randomOffset)).toFixed(1);
       setStreamvibeRating(streamvibe);
 
-      // Fetch available languages
       const languagesResponse = await axios.get('https://api.themoviedb.org/3/configuration/languages?api_key=81f382d33088c6d52099a62eab51d967');
       setLanguages(languagesResponse.data);
       

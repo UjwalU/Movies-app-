@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import SignupForm from './components/SignUpForm';
 import MovieCard from './components/MovieCard';
-import MovieDetail from './components/MovieDetail';  // Import the new component
+import MovieDetail from './components/MovieDetail'; 
 import './App.css';
 import image from './assets/image.jpg';
 

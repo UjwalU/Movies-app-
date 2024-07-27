@@ -1,8 +1,7 @@
-/* Background Container */
 .background-container1 {
     position: relative;
     width: 95%;
-    height: 90vh; /* Ensure height is auto */
+    height: 90vh; 
     margin: auto;
     margin-top: 15px;
     border-radius: 35px;
@@ -64,7 +63,7 @@
 
   }
   
-  /* Additional Information */
+
   .additional-info {
     margin: 20px auto;
     width: 95%;

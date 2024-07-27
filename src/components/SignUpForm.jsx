@@ -9,9 +9,9 @@ const theme = createTheme({
           fontFamily: 'Lato',
           backgroundColor: 'transparent',
           borderBottom: '1px solid #000000',
-          marginBottom: '0px', // Increased margin for gap between text and input line
+          marginBottom: '0px', 
           '& .MuiInputBase-root': {
-            height: '40px', // Single-line appearance
+            height: '40px', 
           },
           '& .MuiInputLabel-root': {
             fontSize: '14px',
@@ -22,7 +22,7 @@ const theme = createTheme({
             border: 'none',
           }, 
           '& .MuiOutlinedInput-input': {
-            padding: '2px 5px', // Consistent padding
+            padding: '2px 5px', 
           },
         },
       },
@@ -34,7 +34,7 @@ const theme = createTheme({
           fontWeight: 'bold',
           color: '#565656',
           marginBottom: '0px',
-          fontSize: '22.5px', // Adjusted font size
+          fontSize: '22.5px', 
         },
       },
     },

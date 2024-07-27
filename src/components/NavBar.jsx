@@ -36,7 +36,6 @@ const NavBar = ({ setContent, setShowSignUp }) => {
         const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=81f382d33088c6d52099a62eab51d967&query=${searchTerm}`);
         setSearchResults(response.data.results);
         if (response.data.results.length > 0) {
-          // Redirect to the first search result (or handle multiple results)
           const movieId = response.data.results[0].id;
           navigate(`/movie/${movieId}`);
         }
