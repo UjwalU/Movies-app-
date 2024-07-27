@@ -1,0 +1,236 @@
+/* Background Container */
+.background-container1 {
+    position: relative;
+    width: 95%;
+    height: 90vh; /* Ensure height is auto */
+    margin: auto;
+    margin-top: 15px;
+    border-radius: 35px;
+    overflow: hidden;
+  }
+  
+  .background-container1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 35px;
+  }
+  
+  .overlay1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(195, 206, 206, 0.5);
+    z-index: 1;
+    border-radius: 35px;
+  }
+  
+  .contentDetail {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+    font-size: 16.5px;
+    font-weight: 600;
+    line-height: 1.2em;
+    letter-spacing: 0.015em;
+    text-align: left;
+    padding-right: 40px;
+    padding-top: 30px;
+  }
+
+  .overview {
+    font-size: 20px;
+    line-height: 29.9px;
+    letter-spacing: 0.015em;
+    padding-top: 61px;
+    padding-bottom: 50px;
+  }
+  
+  .play-now-button {
+    margin-top: 10px;
+    padding: 13px 50px;
+    background-color: #000000 ;
+    color: white;
+    border: none;
+    border-radius: 35px;
+    font-size: 18px;
+    cursor: pointer;
+
+  }
+  
+  /* Additional Information */
+  .additional-info {
+    margin: 20px auto;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .info-frame {
+    background: rgba(195, 206, 206, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .info-frame h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-family: 'manrope', sans-serif;
+    color: #999999;
+    font-weight: 500;
+  }
+  
+  .info-frame p {
+    margin: 5px 0;
+    font-size: 18px;
+    color: #000000;
+  }
+
+  .info-frame .infop {
+    color: #5b5b5b;
+    font-weight: 600;
+    font-family: 'manrope', sans-serif;
+    font-size: 20px;
+  }
+
+  .additional-info .info-frame .description-p{
+    color: #595959;
+    font-family: 'manrope', sans-serif;
+  }
+
+  .rating-frame {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .rating-container {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+  }
+  
+  .rating-sub-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #d4d4d4;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 5px;
+    width: 300px; 
+    height: 60px; 
+  }
+  
+  .rating-sub-container h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #000000;
+    font-weight: 500;
+  }
+  
+  .rating-sub-container p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .rating-sub-container .stars-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .rating-sub-container .stars-container span {
+    margin-right: 0px;
+  }
+  
+  .star-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .languages-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .language-button {
+    background-color: #000000;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #f0f0f0;
+  }
+
+  .info-frame .lang-tag {
+    background: #141411;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 8px;
+    font-size: 18px;
+    border: 1px solid #262626;
+    margin: 5px;
+    display: inline-block;
+  }
+  
+
+  .genre-frame h3 {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+
+  .genres-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .genre-tag {
+    background: #141411;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 18px;
+    border: 1px solid #262626;
+  }
+
+  .cal-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 10px;
+    box-sizing: 1px;
+    padding-bottom: 2.5px;
+  }
+  
+  .lang-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 10px;
+    padding-bottom: 3px;
+  }
+  
+  .star-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 10px;
+    padding-bottom: 5px;
+  }
+  
+  .gen-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 10px;
+    padding-bottom: 5px;
+  }

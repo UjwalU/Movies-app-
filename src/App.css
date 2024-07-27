@@ -1,0 +1,329 @@
+/* General body and app styles */
+body, html, #root, .app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto; /* Allow height to grow */
+  min-height: 100vh; /* Ensures it covers the viewport */
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* App Bar */
+.app-bar {
+  background-color: #ffffff !important;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 3;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  height: 60px;
+}
+
+/* Title */
+.title {
+  font-family: 'Lato';
+  font-weight: 800;
+  font-size: 21px;
+  line-height: 25.2px;
+  text-align: left;
+  color: #000000;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* Navigation Button */
+.nav-button {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26.6px;
+  text-align: left;
+  color: #000000 !important;
+}
+
+.nav-button:nth-child(1) { width: 64px; }
+.nav-button:nth-child(2) { width: 52px; }
+.nav-button:nth-child(3) { width: 69px; }
+.nav-button:nth-child(4) { width: 83px; }
+
+/* Sign Up Button */
+.sign-up {
+  border: 1px solid #000000;
+  border-radius: 10px;
+  padding: 5px 15px;
+  font-family: 'Lato';
+  font-size: 18px;
+  color: #000000 !important;
+}
+
+/* Background Container */
+.background-container {
+  position: relative;
+  width: 95%;
+  height: auto; /* Ensure height is auto */
+  margin: auto;
+  margin-top: 15px;
+  border-radius: 20px;
+}
+
+.background-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 99.25%;
+  background: rgba(195, 206, 206, 0.85);
+  z-index: 1;
+  border-radius: 15px;
+}
+
+.content {
+  position: absolute;
+  top: 19%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: #000000;
+  font-family: 'Lato', sans-serif;
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 1.2em;
+  letter-spacing: 0.015em;
+  text-align: left;
+}
+
+.content1 {
+  position: absolute;
+  top: 26.5%;
+  left: 51.5%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: #565656;
+  font-family: 'Lato', sans-serif;
+  font-size: 35px;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.content2 {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  font-weight: 550;
+  line-height: 29.9px;
+  letter-spacing: 0.015em;
+  text-align: center;
+  color: #000000;
+  position: absolute;
+  top: 45%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 90%;
+}
+
+.content3 {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 29.9px;
+  letter-spacing: 0.015em;
+  text-align: center;
+  color: #000000;
+  position: absolute;
+  top: 65%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 90%;
+}
+
+/* MovieCard Styles */
+.movie-card {
+  border: 1px solid #ddd;
+  overflow: hidden;
+  text-align: center;
+  margin: 20px;
+  width: 240px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.movie-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 35px;
+}
+
+.movie-card button {
+  background-color: #565656;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 35px;
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 15px;
+  text-transform: none;
+  font-family: 'Lato';
+}
+
+.movie-card button:hover {
+  background-color: #444;
+}
+
+/* Horizontal Line */
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #000000;
+  margin: 10px 0;
+}
+
+/* Genre Section */
+.genre-section {
+  margin: 40px 0;
+}
+
+/* Genre Container */
+.genre-container {
+  margin: 20px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Frame 7 - Genre Title Container */
+.frame-7 {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+  background: #FFFFFF;
+}
+
+/* Genre Title */
+.genre-title {
+  font-family: 'Lato';
+  font-size: 20px;
+  color: #000000;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+/* Scroll Button */
+.scroll-button {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.scroll-button.left {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.scroll-button.right {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.scroll-icon {
+  font-size: 24px;
+}
+
+/* Genre Movies Container */
+.genre-movies {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  margin: 0 30px;
+}
+
+.movie-card {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  text-align: center;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .app-bar {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    gap: 10px;
+    height: auto;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-button {
+    font-size: 18px;
+    width: auto;
+  }
+
+  .sign-up {
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+
+  .content {
+    font-size: 10px;
+  }
+
+  .content1 {
+    font-size: 30px;
+  }
+
+  .background-container {
+    width: 100%;
+  }
+
+  .scroll-button {
+    right: 10px;
+  }
+
+  .line {
+    width: 100%;
+    left: 0;
+    top: 10px;
+  }
+}
