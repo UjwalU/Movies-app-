@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect, useRef } from 'react'; 
 import { AppBar, Toolbar, Typography, Button, TextField, InputAdornment, IconButton, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -10,6 +10,7 @@ const NavBar = ({ setContent, setShowSignUp }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [recentSearches, setRecentSearches] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
+  const searchContainerRef = useRef(null); 
   const navigate = useNavigate();
 
   const menuItems = [
@@ -20,27 +21,33 @@ const NavBar = ({ setContent, setShowSignUp }) => {
   ];
 
   const handleSearchClick = () => {
-    setShowSearchOverlay(!showSearchOverlay);
+    setShowSearchOverlay(true);
   };
 
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
+  const handleSearchChange = async (e) => {
+    const newSearchTerm = e.target.value;
+    setSearchTerm(newSearchTerm);
+
+    if (newSearchTerm.trim() !== '') {
+      try {
+        const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=81f382d33088c6d52099a62eab51d967&query=${newSearchTerm}`);
+        setSearchResults(response.data.results);
+      } catch (error) {
+        console.error('Error fetching search results:', error);
+      }
+    } else {
+      setSearchResults([]);
+    }
   };
 
-  const handleSearchSubmit = async (e) => {
+  const handleSearchSubmit = (e) => {
     if (e.key === 'Enter' && searchTerm.trim() !== '') {
       if (!recentSearches.includes(searchTerm.trim())) {
         setRecentSearches([...recentSearches, searchTerm.trim()]);
       }
-      try {
-        const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=81f382d33088c6d52099a62eab51d967&query=${searchTerm}`);
-        setSearchResults(response.data.results);
-        if (response.data.results.length > 0) {
-          const movieId = response.data.results[0].id;
-          navigate(`/movie/${movieId}`);
-        }
-      } catch (error) {
-        console.error('Error fetching search results:', error);
+      if (searchResults.length > 0) { 
+        const movieId = searchResults[0].id;
+        navigate(`/movie/${movieId}`);
       }
       setSearchTerm('');
       setShowSearchOverlay(false);
@@ -54,6 +61,24 @@ const NavBar = ({ setContent, setShowSignUp }) => {
   const handleTitleClick = () => {
     navigate('/');
   };
+
+  const handleClickOutside = (event) => { 
+    if (searchContainerRef.current && !searchContainerRef.current.contains(event.target)) {
+      setShowSearchOverlay(false);
+    }
+  };
+
+  useEffect(() => { 
+    if (showSearchOverlay) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showSearchOverlay]);
 
   return (
     <AppBar
@@ -70,7 +95,7 @@ const NavBar = ({ setContent, setShowSignUp }) => {
     >
       <Toolbar
         sx={{
-          display: 'flex',
+          flexDirection: { xs: 'column', sm: 'row'},
           alignItems: 'center',
           width: '100%',
         }}
@@ -81,7 +106,7 @@ const NavBar = ({ setContent, setShowSignUp }) => {
           sx={{
             fontFamily: 'Lato',
             fontWeight: 1000,
-            fontSize: '21px',
+            fontSize: 'clamp(18px, 3vw, 24px)',
             lineHeight: '25.2px',
             color: '#000000',
             marginRight: '110px',
@@ -117,7 +142,7 @@ const NavBar = ({ setContent, setShowSignUp }) => {
             </Button>
           ))}
         </div>
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative' }} ref={searchContainerRef}> 
           <TextField
             placeholder="Search"
             value={searchTerm}
@@ -132,7 +157,7 @@ const NavBar = ({ setContent, setShowSignUp }) => {
               ),
             }}
             sx={{
-              width: '300px',
+              width: { xs: '100%', sm: '300px', },
               height: '25px',
               padding: '7px 10px 10px 15px',
               borderRadius: '25px',
@@ -167,7 +192,7 @@ const NavBar = ({ setContent, setShowSignUp }) => {
                 position: 'absolute',
                 top: '125%',
                 left: 0,
-                width: '300px',
+                width: { xs: '100%', sm: '300px' },
                 backgroundColor: '#ffffff',
                 boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
                 borderRadius: '0 0 10px 10px',
@@ -224,7 +249,7 @@ const NavBar = ({ setContent, setShowSignUp }) => {
             borderRadius: '10px',
             padding: '5px 15px',
             fontFamily: 'Lato, sans-serif',
-            fontSize: '16px',
+            fontSize: 'clamp(14px, 2vw, 16px)',
             color: '#000000',
             background: 'none',
             textTransform: 'none',
@@ -238,6 +263,7 @@ const NavBar = ({ setContent, setShowSignUp }) => {
         </Button>
       </Toolbar>
     </AppBar>
+ 
   );
 };
 

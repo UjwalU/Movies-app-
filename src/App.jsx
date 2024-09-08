@@ -3,22 +3,28 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import SignupForm from './components/SignUpForm';
 import MovieCard from './components/MovieCard';
-import MovieDetail from './components/MovieDetail'; 
+import MovieDetail from './components/MovieDetail';
+import CircularWithValueLabel from './components/CircularWithValueLabel';
+import { SparklesCore } from './components/Sparkles';
 import './App.css';
+import './MovieDetail.css';
 import image from './assets/image.jpg';
 
 const App = () => {
   const [showSignUp, setShowSignUp] = useState(false);
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=81f382d33088c6d52099a62eab51d967&language=en-US&page=1');
+        const response = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=81f382d33088c6d52099a62eab51d967&language=en-US');
         const data = await response.json();
         setMovies(data.results);
       } catch (error) {
         console.error('Error fetching movies:', error);
+      } finally {
+        setTimeout(() => setIsLoading(false), 2000);
       }
     };
 
@@ -68,10 +74,32 @@ const App = () => {
   };
 
   const genres = groupMoviesByGenre(movies);
+  
+  if (isLoading) {
+    return (
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        backgroundColor: '#ffffff'
+      }}>
+        <CircularWithValueLabel />
+      </div>
+    );
+  }
 
   return (
     <Router>
       <div className="app">
+        <SparklesCore
+          particleColor="#ffffff"
+          particleDensity={150}
+          background="#0d47a1"
+          minSize={1}
+          maxSize={3}
+          speed={4}
+        />
         <NavBar setShowSignUp={setShowSignUp} />
         <SignupForm open={showSignUp} onClose={() => setShowSignUp(false)} />
         <Routes>

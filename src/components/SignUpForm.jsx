@@ -7,11 +7,13 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontFamily: 'Lato',
-          backgroundColor: 'transparent',
-          borderBottom: '1px solid #000000',
+          backgroundColor: '#F7F7F7',
+          borderRadius: '8px',
+          borderBottom: '1px solid #F7F7F7',
           marginBottom: '0px', 
           '& .MuiInputBase-root': {
-            height: '40px', 
+            height: '40px',
+            padding: '0px 10px', 
           },
           '& .MuiInputLabel-root': {
             fontSize: '14px',
@@ -23,6 +25,7 @@ const theme = createTheme({
           }, 
           '& .MuiOutlinedInput-input': {
             padding: '2px 5px', 
+            backgroundColor: '#F7F7F7',
           },
         },
       },
@@ -42,30 +45,70 @@ const theme = createTheme({
 });
 
 const SignupForm = ({ open, onClose }) => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [number, setNumber] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    number: '',
+    password: '',
+    confirmPassword: ''
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const { password, confirmPassword } = formData;
     if (password !== confirmPassword) {
       alert('Passwords do not match');
       return;
     }
-    console.log({ username, email, number, password });
-    setUsername('');
-    setEmail('');
-    setNumber('');
-    setPassword('');
-    setConfirmPassword('');
+    console.log(formData);
+    // Reset the form data
+    setFormData({
+      username: '',
+      email: '',
+      number: '',
+      password: '',
+      confirmPassword: ''
+    });
     onClose();
   };
 
+  const renderTextField = (label, name, type = 'text') => (
+    <Box sx={{ width: '100%' }}>
+      <Typography>{label}</Typography>
+      <TextField
+        name={name}
+        type={type}
+        fullWidth
+        value={formData[name]}
+        onChange={handleInputChange}
+      />
+    </Box>
+  );
+
   return (
     <ThemeProvider theme={theme}>
-      <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
+      <Dialog 
+        open={open} 
+        onClose={onClose} 
+        maxWidth="sm" 
+        fullWidth 
+        PaperProps={{
+          style: { 
+            maxWidth: '700px',
+            width: '100%',
+            borderRadius: '20px',
+            minHeight: '630px',
+          },
+        }}
+      >
         <DialogTitle
           sx={{
             textAlign: 'center',
@@ -78,7 +121,11 @@ const SignupForm = ({ open, onClose }) => {
         >
           Sign in to MovieStreamer
         </DialogTitle>
-        <DialogContent>
+        <DialogContent
+          sx={{
+            borderRadius: '20px',
+          }}
+        >
           <Box
             component="form"
             onSubmit={handleSubmit}
@@ -92,67 +139,18 @@ const SignupForm = ({ open, onClose }) => {
               alignItems: 'center',
             }}
           >
-            <Box sx={{ width: '100%' }}>
-              <Typography>Username</Typography>
-              <TextField
-                placeholder=""
-                type="text"
-                fullWidth
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </Box>
-
-            <Box sx={{ width: '100%' }}>
-              <Typography>Email</Typography>
-              <TextField
-                placeholder=""
-                type="email"
-                fullWidth
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Box>
-
-            <Box sx={{ width: '100%' }}>
-              <Typography>Phone Number</Typography>
-              <TextField
-                placeholder=""
-                type="tel"
-                fullWidth
-                value={number}
-                onChange={(e) => setNumber(e.target.value)}
-              />
-            </Box>
-
-            <Box sx={{ width: '100%' }}>
-              <Typography>Password</Typography>
-              <TextField
-                placeholder=""
-                type="password"
-                fullWidth
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Box>
-
-            <Box sx={{ width: '100%' }}>
-              <Typography>Confirm Password</Typography>
-              <TextField
-                placeholder=""
-                type="password"
-                fullWidth
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-            </Box>
+            {renderTextField('Username', 'username')}
+            {renderTextField('Email', 'email', 'email')}
+            {renderTextField('Phone Number', 'number', 'tel')}
+            {renderTextField('Password', 'password', 'password')}
+            {renderTextField('Confirm Password', 'confirmPassword', 'password')}
 
             <Button
               type="submit"
               sx={{
                 backgroundColor: '#D9D9D9',
                 color: '#000000',
-                fontWeight: 'bold',
+                fontWeight: '550',
                 borderRadius: '10px',
                 padding: '10px',
                 alignSelf: 'center',

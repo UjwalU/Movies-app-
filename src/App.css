@@ -1,16 +1,13 @@
-
 body, html, #root, .app {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: auto; 
-  min-height: 100vh; 
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
   color: #000000;
 }
-
 
 .app-bar {
   background-color: #ffffff !important;
@@ -23,7 +20,6 @@ body, html, #root, .app {
   z-index: 3;
 }
 
-
 .toolbar {
   display: flex;
   align-items: center;
@@ -32,28 +28,23 @@ body, html, #root, .app {
   height: 60px;
 }
 
-
 .title {
-  font-family: 'Lato';
+  font-family: 'Lato', sans-serif;
   font-weight: 800;
-  font-size: 21px;
-  line-height: 25.2px;
+  font-size: 1.5rem;
   text-align: left;
   color: #000000;
 }
-
 
 .nav-links {
   display: flex;
   gap: 20px;
 }
 
-
 .nav-button {
   font-family: 'Segoe UI', sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 400;
-  line-height: 26.6px;
   text-align: left;
   color: #000000 !important;
 }
@@ -63,12 +54,37 @@ body, html, #root, .app {
 .nav-button:nth-child(3) { width: 69px; }
 .nav-button:nth-child(4) { width: 83px; }
 
+/* Splash Screen */
+.splash-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+}
+
+.splash-title {
+  color: #e50314;
+  font-size: 4rem;
+  font-family: 'Netflix Sans', 'Helvetica Neue', 'Segoe UI', 'Roboto', 'Ubuntu', sans-serif;
+  font-weight: 700;
+  padding-bottom: 20%;
+}
+
+.ticker-class {
+  margin-top: 20px;
+  font-size: 3.5rem;
+  color: white;
+  padding-top: 30%;
+  padding-right: 20%;
+}
+
 /* Sign Up Button */
 .sign-up {
   border: 1px solid #000000;
   border-radius: 10px;
   padding: 5px 15px;
-  font-family: 'Lato';
+  font-family: 'Lato', sans-serif;
   font-size: 18px;
   color: #000000 !important;
 }
@@ -77,9 +93,7 @@ body, html, #root, .app {
 .background-container {
   position: relative;
   width: 95%;
-  height: auto; 
-  margin: auto;
-  margin-top: 15px;
+  margin: 15px auto;      
   border-radius: 20px;
 }
 
@@ -94,7 +108,7 @@ body, html, #root, .app {
   top: 0;
   left: 0;
   width: 100%;
-  height: 99.25%;
+  height: 100%;
   background: rgba(195, 206, 206, 0.85);
   z-index: 1;
   border-radius: 15px;
@@ -103,66 +117,55 @@ body, html, #root, .app {
 .content {
   position: absolute;
   top: 19%;
-  left: 50.5%;
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
   color: #000000;
   font-family: 'Lato', sans-serif;
-  font-size: 16.5px;
+  font-size: 1.5rem;
   font-weight: 600;
-  line-height: 1.2em;
-  letter-spacing: 0.015em;
   text-align: left;
 }
 
 .content1 {
   position: absolute;
-  top: 26.5%;
-  left: 51.5%;
+  top: 27%;
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
   color: #565656;
   font-family: 'Lato', sans-serif;
-  font-size: 35px;
+  font-size: 2.5rem;
   font-weight: lighter;
   text-align: center;
 }
 
-.content2 {
+.content2, .content3 {
   font-family: 'Lato', sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 550;
-  line-height: 29.9px;
-  letter-spacing: 0.015em;
   text-align: center;
   color: #000000;
   position: absolute;
-  top: 45%;
-  left: 53%;
-  transform: translate(-50%, -50%);
   z-index: 2;
   width: 90%;
 }
 
-.content3 {
-  font-family: 'Lato', sans-serif;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 29.9px;
-  letter-spacing: 0.015em;
-  text-align: center;
-  color: #000000;
-  position: absolute;
-  top: 65%;
-  left: 53%;
+.content2 {
+  top: 45%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 90%;
+}
+
+.content3 {
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* MovieCard Styles */
 .movie-card {
-  border: 1px solid #ddd;
+  border: 1px solid #ffffff;
   overflow: hidden;
   text-align: center;
   margin: 20px;
@@ -187,7 +190,6 @@ body, html, #root, .app {
   cursor: pointer;
   border-radius: 35px;
   width: 90%;
-  display: block;
   margin-left: auto;
   margin-right: auto;
   font-size: 15px;
@@ -207,11 +209,9 @@ body, html, #root, .app {
   margin: 10px 0;
 }
 
-
 .genre-section {
   margin: 40px 0;
 }
-
 
 .genre-container {
   margin: 20px 0;
@@ -220,7 +220,6 @@ body, html, #root, .app {
   align-items: center;
 }
 
-
 .frame-7 {
   display: flex;
   padding: 10px;
@@ -228,15 +227,13 @@ body, html, #root, .app {
   background: #FFFFFF;
 }
 
-
 .genre-title {
-  font-family: 'Lato';
-  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.25rem;
   color: #000000;
   text-transform: capitalize;
   font-weight: 600;
 }
-
 
 .scroll-button {
   cursor: pointer;
@@ -257,10 +254,9 @@ body, html, #root, .app {
   transform: translateY(-50%);
 }
 
-.scroll-icon {
-  font-size: 24px;
+.scroll-icon { 
+  font-size: 1.5rem;
 }
-
 
 .genre-movies {
   display: flex;
@@ -275,8 +271,56 @@ body, html, #root, .app {
   flex: 0 0 auto;
   margin-right: 10px;
   text-align: center;
+
+}
+@media (max-width: 1440px) {
+  .content2, .content3 {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+  }
+}
+@media (max-width: 1024px) {
+  .content1 {
+    font-size: clamp(1.5rem, 2.5vw, 1.8rem); 
+  }
+
+  .content2, .content3 {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+  }
+
+  .movie-card {
+    width: 200px;
+  }
+
+  .movie-image {
+    height: 280px;
+  }
 }
 
+@media (max-width: 480px) {
+  .title {
+    font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive scaling */
+  }
+
+  .nav-button {
+    font-size: clamp(0.75rem, 2.5vw, 0.9rem); /* Responsive scaling */
+  }
+
+  .content1 {
+    font-size: clamp(1.25rem, 3.5vw, 1.5rem); /* Responsive scaling */
+  }
+
+  .content2, .content3 {
+    font-size: clamp(0.75rem, 2.5vw, 0.9rem); /* Responsive scaling */
+  }
+
+  .movie-card {
+    width: 150px;
+  }
+
+  .movie-image {
+    height: 220px;
+  }
+}
 
 @media (max-width: 768px) {
   .app-bar {
@@ -296,25 +340,30 @@ body, html, #root, .app {
   }
 
   .nav-button {
-    font-size: 18px;
+    font-size: 1rem;
     width: auto;
   }
 
   .sign-up {
-    font-size: 16px;
+    font-size: 1rem;
     padding: 5px 10px;
   }
 
   .content {
-    font-size: 10px;
+    font-size: 1rem;
   }
 
   .content1 {
-    font-size: 30px;
+    font-size: 2rem;
+  }
+
+  .content2, .content3 {
+    font-size: clamp(0.85rem, 2vw, 1rem);
   }
 
   .background-container {
     width: 100%;
+
   }
 
   .scroll-button {

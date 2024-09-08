@@ -1,7 +1,7 @@
 .background-container1 {
     position: relative;
     width: 95%;
-    height: 90vh; 
+    height: 90vh;   
     margin: auto;
     margin-top: 15px;
     border-radius: 35px;
@@ -62,8 +62,39 @@
     cursor: pointer;
 
   }
-  
 
+  .trailer-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .trailer-modal-content {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    height: 450px;
+    background: #000;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
   .additional-info {
     margin: 20px auto;
     width: 95%;
@@ -133,6 +164,7 @@
     font-size: 18px;
     color: #000000;
     font-weight: 500;
+    padding-right: 250px;
   }
   
   .rating-sub-container p {
@@ -145,8 +177,16 @@
     align-items: center;
   }
   
+  .stars-container{
+    padding-right: 178px;
+  }
+
   .rating-sub-container .stars-container span {
     margin-right: 0px;
+  }
+
+  .rating-sub-container .streamvibe-heading {
+    padding-right: 200px;
   }
   
   .star-icon {
@@ -157,6 +197,28 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+  }
+  
+  .loading-container {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    height: 100vh;
+    padding-left: 50%;
+  }
+
+  .notfound-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+  }
+  
+  .notfound {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 70%; 
   }
   
   .language-button {
